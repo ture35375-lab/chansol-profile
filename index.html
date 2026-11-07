@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- ...какие-то ваши другие теги (meta, title)... -->
+
+</head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- СТРОГАЯ ЗАЩИТА ОТ ПОИСКОВИКОВ: сайт не появится в поиске Яндекса и Google -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Профиль</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .header {
+            max-width: 935px;
+            margin: 0 auto;
+            padding: 30px 20px 0;
+            display: flex;
+            border-bottom: 1px solid #dbdbdb;
+            padding-bottom: 40px;
+        }
+        .avatar-container {
+            flex-width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 30px;
+        }
+        .avatar-container {
+        flex-width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
+    }
+
+    .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #efefef;
+            border: 1px solid #dbdbdb;
+            object-fit: cover;
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .username-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .username {
+            font-size: 28px;
+            font-weight: 300;
+            margin-right: 20px;
+        }
+        .stats-row {
+            display: flex;
+            margin-bottom: 20px;
+            list-style: none;
+        }
+        .stats-item {
+            margin-right: 40px;
+            font-size: 16px;
+        }
+        .stats-count {
+            font-weight: 600;
+        }
+        .bio {
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .bio-name {
+            font-weight: 600;
+        }
+        .gallery {
+            max-width: 935px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            padding: 28px 20px;
+        }
+        .photo-item {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* Делает элементы строго квадратными */
+            background-color: #efefef;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .photo-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Адаптивность для мобильных телефонов */
+        @media (max-width: 735px) {
+            .header {
+                padding: 20px 10px;
+                flex-direction: row;
+                align-items: center;
+            }
+            .avatar {
+                width: 77px;
+                height: 77px;
+            }
+            .avatar-container {
+                margin-right: 0;
+            }
+            .username {
+                font-size: 20px;
+            }
+            .stats-row {
+                padding: 12px 0;
+                justify-content: space-around;
+                border-top: 1px solid #dbdbdb;
+                border-bottom: 1px solid #dbdbdb;
+            }
+            .stats-item {
+                margin-right: 0;
+                text-align: center;
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+            }
+            .gallery {
+                gap: 3px;
+                padding: 3px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка профиля (Аватарка, Имя, Счетчики) -->
+    <header class="header">
+        <div class="avatar-container">
+            <!-- Стандартная заглушка вместо аватарки. Замените на свое фото позже -->
+            <img class="avatar" src="ava.jpg" alt="Аватарка">
+            </div>
+        <div class="profile-info">
+            <div class="username-row">
+                <!-- СЮДА НАПИШИТЕ СВОЙ НИКНЕЙМ -->
+                <h2 class="username">Chan.._soul</h2>
+            </div>
+            <ul class="stats-row">
+                <!-- ТУТ ВПИШИТЕ ЛЮБЫЕ ЦИФРЫ -->
+                <li class="stats-item"><span class="stats-count">3</span> публикаций</li>
+                <li class="stats-item"><span class="stats-count">257K</span> подписчиков</li>
+                <li class="stats-item"><span class="stats-count">11</span> подписок</li>
+            </ul>
+            <div class="bio">
+                <!-- ВАШЕ ОПИСАНИЕ ПРОФИЛЯ -->
+                <p class="bio-name">𝔽𝕒𝕤𝕙𝕚𝕠𝕟 𝕄𝕠𝕕𝕖𝕝</p>
+                <p>Nagoya ➔ Incheon</p>
+                <p>l'âme et le corps.</p>
+                <p>For inquiries: chansol.biz@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+   <!-- Новые стили для карусели и комментариев (вставьте это прямо сюда) -->
+    <style>
+        .feed {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .instagram-post {
+            background: #ffffff;
+            border: 1px solid #dbdbdb;
+            margin-bottom: 24px;
+            border-radius: 3px;
+        }
+        /* Окно карусели с прокруткой пальцем */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Прячет ползунок на ПК */
+        }
+        .carousel-track::-webkit-scrollbar {
+            display: none; /* Прячет ползунок на смартфонах */
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            position: relative;
+            padding-top: 100%; /* Делает фото квадратным */
+        }
+        .carousel-slide img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Индикатор страниц (например, 1/3) */
+        .carousel-counter {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 5px 9px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10;
+        }
+        /* Блок под фото (лайки, текст, комменты) */
+        .post-content {
+            padding: 12px 16px;
+        }
+        .post-actions {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .likes-count {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .post-caption, .comment-item {
+            font-size: 14px;
+            line-height: 18px;
+            margin-bottom: 4px;
+        }
+        .comment-username {
+            font-weight: 600;
+            margin-right: 6px;
+            text-decoration: none;
+            color: #000000;
+        }
+        .comment-text {
+            color: #000000;
+        }
+        @media (max-width: 735px) {
+            .instagram-post {
+                border-left: none;
+                border-right: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+   <!-- Дополнение к стилям (вставьте этот блок внутрь <style> или прямо под ним) -->
+    <style>
+        .post-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 11px 16px;
+            border-bottom: 1px solid #efefef;
+        }
+        .post-header-left {
+            display: flex;
+            align-items: center;
+        }
+        .post-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            border: 1px solid #dbdbdb;
+        }
+        .post-header-username {
+            font-size: 14px;
+            font-weight: 600;
+            color: #262626;
+        }
+        .post-date {
+            font-size: 13px;
+            color: #8e8e8e;
+            font-weight: 400;
+        }
+    </style>
+
+    <!-- Обновленная лента с постами (НОВЫЕ ПОСТЫ ПИШЕМ СВЕРХУ) -->
+    <main class="feed">
+
+        <!-- ========================================== -->
+        <!-- САМЫЙ НОВЫЙ ПОСТ (ПОЯВИТСЯ НАВЕРХУ СТРАНИЦЫ) -->
+        <!-- ========================================== -->
+        <article class="instagram-post">
+            <!-- Шапка поста: Аватарка, Никнейм и Дата -->
+            <div class="post-header">
+                <div class="post-header-left">
+                    <img class="post-avatar" src="ava.jpg" alt="Ава">
+                    <span class="post-header-username">Chan.._soul</span>
+                </div>
+                <!-- ТУТ ВЫБИРАЙТЕ ЛЮБУЮ ДАТУ ДЛЯ НОВОГО ПОСТА -->
+                <div class="post-date">Nov 18, 2025</div> 
+            </div>
+
+            <!-- Карусель картинок -->
+            <div class="carousel-wrapper">
+                <div class="carousel-counter">1/3</div>
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="1.jpg" alt="Фото 1"></div>
+                    <div class="carousel-slide"><img src="2.jpg" alt="Фото 2"></div>
+                    <div class="carousel-slide"><img src="3.jpg" alt="Фото 3"></div>
+                </div>
+            </div>
+
+            <!-- Лайки и текст -->
+            <div class="post-content">
+                <div class="post-actions">❤️ 💬 ✈️</div>
+                <div class="likes-count">likes: 246K • 👁️ 362K</div>
+                <div class="post-caption">
+                    <span class="comment-username">Chan.._soul</span>
+                    <span class="comment-text">오늘 첫 프로필 테스트 촬영이었어요..<br>진짜 많이 긴장했어요 ㅠㅠ<br>그래도 도휘 형이 많이 도와주셔서 잘 끝났습니다!<br>
+촬영 끝나고 같이 카페에 갔는데 형이 연어덮밥을 사줬어요</span>
+                </div>
+                <div class="comment-item">
+                    <span class="comment-username">@lune._.vibe</span>
+                    <span class="comment-text">대박.. 도휘 형 진짜 스윗하다!!</span>
+                </div>
+                <div class="comment-item">
+                    <span class="comment-username">@blue.mood_</span>
+                    <span class="comment-text">어떤 아름다움!</span>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- ========================================== -->
+        <!-- БОЛЕЕ СТАРЫЙ ПОСТ (БУДЕТ НАХОДИТЬСЯ СНИЗУ) -->
+        <!-- ========================================== -->
+        <article class="instagram-post">
+            <div class="post-header">
+                <div class="post-header-left">
+                    <img class="post-avatar" src="ava.jpg" alt="Ава">
+                    <span class="post-header-username">Chan.._soul</span>
+                </div>
+                <!-- ДАТА ДЛЯ СТАРОГО ПОСТА -->
+                <div class="post-date">Nov 15, 2025</div>
+            </div>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-counter">1/2</div>
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="4.jpg" alt="Фото 4"></div>
+                    <div class="carousel-slide"><img src="5.jpg" alt="Фото 5"></div>
+                    <div class="carousel-slide"><img src="6.jpg" alt="Фото 6"></div>
+                    <div class="carousel-slide"><img src="7.jpg" alt="Фото 7"></div>
+                    <div class="carousel-slide"><img src="8.jpg" alt="Фото 8"></div>
+                </div>
+            </div>
+
+            <div class="post-content">
+                <div class="post-actions">❤️ 💬 ✈️</div>
+                <div class="likes-count">likes: 98K • 👁️ 185K</div>
+                <div class="post-caption">
+                    <span class="comment-username">Chan.._soul</span>
+                    <span class="comment-text">새로운 시작.. ✈️<br>인천에 잘 도착했고, 좋은 에이전시에 모델로 들어가게 되었습니다!<br>앞으로 모든 게 다 잘 풀렸으면 좋겠어요.<br>선배님들의 눈높이가 높아서 조금 걱정되지만, 정말 열심히 노력하겠습니다.<br>미라님께서 저를 많이 챙겨주시고 친절하게 대해주셔서 너무 감사해요 ^^</span>
+                    </div>
+                <div class="comment-item">
+                    <span class="comment-username">@g.l.o.o.m.y</span>
+                    <span class="comment-text">와 진짜 너무 예쁘다!! 눈높이가 높아도 잘할 수 있어요! 항상 응원할게요 🤍</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+    <script>
+document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
+    const track = wrapper.querySelector('.carousel-track');
+    const counter = wrapper.querySelector('.carousel-counter');
+    const slides = wrapper.querySelectorAll('.carousel-slide');
+    
+    if (!track || !counter || slides.length === 0) return;
+
+    track.addEventListener('scroll', () => {
+        const width = track.offsetWidth;
+        const scrollLeft = track.scrollLeft;
+        
+        // Вычисляем индекс текущего слайда (округляем для точности)
+        const currentIndex = Math.round(scrollLeft / width) + 1;
+        
+        // Обновляем текст счетчика динамически
+        counter.textContent = `${currentIndex}/${slides.length}`;
+    });
+});
+</script>
+</body>
